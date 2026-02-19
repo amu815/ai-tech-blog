@@ -1,0 +1,28 @@
+# Batch 2: Higher quality articles with Llama 3.3 70B + Web Search
+# Format: keyword|lang|category
+
+# Japanese AI articles
+ローカルLLMの選び方 2025年版|ja|ai
+プロンプトエンジニアリング実践テクニック|ja|ai
+
+# Japanese Tech articles
+Docker Composeで開発環境を構築する方法|ja|tech
+GitHub Actionsで自動デプロイを構築する|ja|tech
+Cloudflare Workersで高速APIを作る|ja|tech
+
+# Japanese Research articles
+大規模言語モデルの最新研究動向 2025|ja|research
+AI安全性研究の最前線|ja|research
+
+# English AI articles
+Building RAG Applications with Local LLMs|en|ai
+Fine-tuning Open Source LLMs: A Practical Guide|en|ai
+AI Agent Frameworks Comparison 2025|en|ai
+
+# English Tech articles
+Setting Up a Home AI Server with NVIDIA GPUs|en|tech
+Deploying Hugo Sites to Cloudflare Pages|en|tech
+
+# English Research articles
+Advances in Multimodal AI Research 2025|en|research
+The State of AI Safety Research|en|research

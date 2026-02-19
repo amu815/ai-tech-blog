@@ -21,7 +21,7 @@ from datetime import datetime
 from pathlib import Path
 
 OLLAMA_URL = "http://127.0.0.1:11434/api/generate"
-MODEL = "qwen3:32b"
+MODEL = "llama3.3:70b-instruct-q4_K_M"
 SEARCH_ENABLED = True
 BLOG_ROOT = Path(__file__).resolve().parent.parent
 CONTENT_DIR = BLOG_ROOT / "content"
@@ -32,8 +32,7 @@ CATEGORIES = {
     "research": {"ja": "研究", "en": "Research"},
 }
 
-PROMPT_JA = """/no_think
-あなたはSEOに精通したテクニカルライターです。以下のキーワードについて、高品質なブログ記事を書いてください。
+PROMPT_JA = """あなたはSEOに精通したテクニカルライターです。以下のキーワードについて、高品質なブログ記事を書いてください。
 
 キーワード: {keyword}
 カテゴリ: {category}
@@ -58,8 +57,7 @@ PROMPT_JA = """/no_think
 - 架空の情報や不確かな統計データを含めないこと
 """
 
-PROMPT_EN = """/no_think
-You are a technical writer with SEO expertise. Write a high-quality blog article about the following keyword.
+PROMPT_EN = """You are a technical writer with SEO expertise. Write a high-quality blog article about the following keyword.
 
 Keyword: {keyword}
 Category: {category}
@@ -127,7 +125,7 @@ def call_ollama(prompt: str) -> str:
         "model": MODEL,
         "prompt": prompt,
         "stream": False,
-        "options": {"num_predict": 4096, "temperature": 0.7},
+        "options": {"num_predict": 8192, "temperature": 0.7},
     }).encode()
 
     req = urllib.request.Request(
@@ -137,53 +135,66 @@ def call_ollama(prompt: str) -> str:
     )
 
     try:
-        with urllib.request.urlopen(req, timeout=300) as resp:
+        with urllib.request.urlopen(req, timeout=600) as resp:
             result = json.loads(resp.read().decode())
             return result.get("response", "")
     except Exception as e:
-        print(f"Error calling Ollama: {e}", file=sys.stderr)
-        sys.exit(1)
+        raise RuntimeError(f"Ollama API error: {e}")
 
 
 def extract_json(text: str) -> dict:
-    """Extract JSON from LLM response using bracket matching."""
-    # Find the first { and match brackets to find the complete JSON object
-    start = text.find("{")
-    if start == -1:
-        raise ValueError(f"No JSON found in response:\n{text[:500]}")
+    """Extract article fields from LLM response using regex-based extraction.
 
-    depth = 0
-    in_string = False
-    escape_next = False
-    end = start
+    More robust than JSON parsing since LLMs often produce invalid JSON
+    (unescaped quotes in code blocks, raw newlines, truncated output).
+    """
+    result = {}
 
-    for i in range(start, len(text)):
-        c = text[i]
-        if escape_next:
-            escape_next = False
-            continue
-        if c == "\\":
-            if in_string:
-                escape_next = True
-            continue
-        if c == '"' and not escape_next:
-            in_string = not in_string
-            continue
-        if in_string:
-            continue
-        if c == "{":
-            depth += 1
-        elif c == "}":
-            depth -= 1
-            if depth == 0:
-                end = i
-                break
+    # Extract title
+    m = re.search(r'"title"\s*:\s*"((?:[^"\\]|\\.)*)"', text)
+    if m:
+        result["title"] = m.group(1)
 
-    if depth != 0:
-        raise ValueError(f"Unbalanced JSON in response:\n{text[:500]}")
+    # Extract description
+    m = re.search(r'"description"\s*:\s*"((?:[^"\\]|\\.)*)"', text)
+    if m:
+        result["description"] = m.group(1)
 
-    json_str = text[start:end + 1]
-    return json.loads(json_str)
+    # Extract tags
+    m = re.search(r'"tags"\s*:\s*\[(.*?)\]', text, re.DOTALL)
+    if m:
+        tags_str = m.group(1)
+        result["tags"] = re.findall(r'"((?:[^"\\]|\\.)*)"', tags_str)
+
+    # Extract body - everything after "body": " until the last possible closing
+    m = re.search(r'"body"\s*:\s*"', text)
+    if m:
+        body_start = m.end()
+        # Find the body content - take everything from body_start
+        # and work backwards from the end to find where the body value ends
+        remaining = text[body_start:]
+
+        # Try to find the closing pattern: "\n} or "} at end of response
+        # Work backwards to find the last unescaped quote
+        body = remaining
+        # Remove trailing } and whitespace
+        body = body.rstrip()
+        if body.endswith("}"):
+            body = body[:-1].rstrip()
+        if body.endswith("}"):
+            body = body[:-1].rstrip()
+        # Remove trailing quote if present
+        if body.endswith('"'):
+            body = body[:-1]
+
+        # Unescape JSON string escapes
+        body = body.replace("\\n", "\n").replace("\\t", "\t").replace('\\"', '"').replace("\\\\", "\\")
+        result["body"] = body
+
+    if not result.get("title") and not result.get("body"):
+        raise ValueError(f"Could not extract article fields from response:\n{text[:500]}")
+
+    return result
 
 
 def slugify(text: str) -> str:
@@ -232,9 +243,9 @@ def generate_article(keyword: str, lang: str, category: str) -> Path:
     try:
         article = extract_json(response)
     except (json.JSONDecodeError, ValueError) as e:
-        print(f"Failed to parse JSON: {e}", file=sys.stderr)
-        print(f"Raw response:\n{response[:1000]}", file=sys.stderr)
-        sys.exit(1)
+        print(f"  Failed to parse JSON: {e}", file=sys.stderr)
+        print(f"  Raw response (first 500 chars):\n{response[:500]}", file=sys.stderr)
+        raise
 
     title = article.get("title", keyword)
     description = article.get("description", "")
@@ -285,7 +296,7 @@ def main():
     parser.add_argument("--lang", "-l", default="ja", choices=["ja", "en"], help="Language (default: ja)")
     parser.add_argument("--category", "-c", default="ai", choices=list(CATEGORIES.keys()), help="Category (default: ai)")
     parser.add_argument("--batch", "-b", help="Path to keywords file (one per line, format: keyword|lang|category)")
-    parser.add_argument("--model", "-m", default=None, help="Ollama model to use (default: qwen3:32b)")
+    parser.add_argument("--model", "-m", default=None, help="Ollama model to use (default: llama3.3:70b-instruct-q4_K_M)")
     parser.add_argument("--no-search", action="store_true", help="Disable web search for context")
     args = parser.parse_args()
 
@@ -302,6 +313,7 @@ def main():
             sys.exit(1)
 
         generated = []
+        failed = []
         for line in batch_file.read_text(encoding="utf-8").splitlines():
             line = line.strip()
             if not line or line.startswith("#"):
@@ -310,10 +322,16 @@ def main():
             keyword = parts[0].strip()
             lang = parts[1].strip() if len(parts) > 1 else "ja"
             category = parts[2].strip() if len(parts) > 2 else "ai"
-            path = generate_article(keyword, lang, category)
-            generated.append(path)
+            try:
+                path = generate_article(keyword, lang, category)
+                generated.append(path)
+            except Exception as e:
+                print(f"  SKIPPED: {keyword} ({e})", file=sys.stderr)
+                failed.append(keyword)
 
-        print(f"\nGenerated {len(generated)} articles.")
+        print(f"\nGenerated {len(generated)} articles, {len(failed)} failed.")
+        if failed:
+            print(f"Failed: {', '.join(failed)}")
 
     elif args.keyword:
         generate_article(args.keyword, args.lang, args.category)
