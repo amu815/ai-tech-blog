@@ -1,4 +1,4 @@
-baseURL = "https://ai-tech-blog.pages.dev"
+baseURL = "https://ai-tech-blog.suemoto-amu-815.workers.dev"
 title = "AI Tech Lab"
 theme = "PaperMod"
 defaultContentLanguage = "ja"
@@ -19,6 +19,8 @@ buildFuture = false
   ShowToc = true
   TocOpen = false
   comments = false
+
+  mainSections = ["ai", "tech", "research"]
 
   [params.homeInfoParams]
     Title = "AI Tech Lab"

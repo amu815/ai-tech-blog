@@ -44,11 +44,14 @@ PROMPT_JA = """/no_think
 }}
 
 記事の要件:
+- 事実に基づいた正確な情報のみ記載する。確信がない情報は書かないこと
+- ツールやライブラリの開発元・所属は正確に記載する（例：OllamaはOllama社のOSS、LlamaはMeta開発）
 - 読者にとって実用的で具体的な内容にする
 - 専門用語には簡潔な説明を加える
 - コード例やコマンド例がある場合はコードブロックで記載
 - 自然な日本語で書く
 - 「まとめ」セクションを最後に含める
+- 架空の情報や不確かな統計データを含めないこと
 """
 
 PROMPT_EN = """/no_think
@@ -66,11 +69,14 @@ Output ONLY in the following JSON format. No other text.
 }}
 
 Article requirements:
+- Only include factually accurate information. Do not fabricate details
+- Accurately attribute tools/libraries to their correct creators (e.g., Ollama is by Ollama Inc, Llama by Meta)
 - Practical and specific content for readers
 - Include brief explanations for technical terms
 - Use code blocks for code/command examples where applicable
 - Write in natural, engaging English
 - Include a "Conclusion" section at the end
+- Do not include made-up statistics or unverified claims
 """
 
 
