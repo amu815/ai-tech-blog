@@ -1,0 +1,21 @@
+# AI (日本語)
+プロンプトエンジニアリング入門 ChatGPTを使いこなすコツ|ja|ai
+Ollamaの使い方 ローカルでLLMを動かす最速ガイド|ja|ai
+
+# Tech (日本語)
+SSH入門 リモートサーバーへの安全な接続方法|ja|tech
+Cloudflare Pagesで無料ブログをデプロイする方法|ja|tech
+
+# Research (日本語)
+研究者のためのPython活用術 データ分析と可視化|ja|research
+効果的な研究発表スライドの作り方|ja|research
+
+# AI (English)
+Prompt Engineering Best Practices for ChatGPT|en|ai
+Local AI Image Generation with Stable Diffusion Guide|en|ai
+
+# Tech (English)
+SSH for Beginners A Complete Tutorial|en|tech
+
+# Research (English)
+Python for Researchers Data Analysis and Visualization|en|research
