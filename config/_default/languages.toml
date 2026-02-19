@@ -1,6 +1,7 @@
 [ja]
   languageName = "日本語"
   languageCode = "ja"
+  contentDir = "content/ja"
   weight = 1
   title = "AI Tech Lab"
   [ja.params]
@@ -9,6 +10,7 @@
 [en]
   languageName = "English"
   languageCode = "en"
+  contentDir = "content/en"
   weight = 2
   title = "AI Tech Lab"
   [en.params]

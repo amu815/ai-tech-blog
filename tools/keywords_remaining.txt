@@ -1,0 +1,4 @@
+Docker for Machine Learning Setup Guide|en|tech
+Python Web Scraping with BeautifulSoup Tutorial|en|tech
+How to Read Academic Papers Efficiently A Guide|en|research
+LaTeX for Research Papers A Beginners Guide|en|research
