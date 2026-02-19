@@ -5,6 +5,10 @@ description: "Learn SSH basics, setup, and commands. A beginner's guide to secur
 tags: ["SSH", "Secure Shell", "Beginner's Guide", "Remote Access", "Linux Commands"]
 categories: ["Technology"]
 slug: "ssh-for-beginners-a-complete-tutorial-guide"
+cover:
+  image: "/images/covers/tech.svg"
+  alt: "SSH for Beginners: A Complete Tutorial & Guide"
+  relative: false
 ShowToc: true
 TocOpen: false
 draft: false

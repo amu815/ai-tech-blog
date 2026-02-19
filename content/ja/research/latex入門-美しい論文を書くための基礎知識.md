@@ -5,6 +5,10 @@ description: "LaTeXで美しい論文を書くための基礎知識。文書構�
 tags: ["LaTeX", "学術論文", "論文作成", "数式記述", "Overleaf"]
 categories: ["研究"]
 slug: "latex入門-美しい論文を書くための基礎知識"
+cover:
+  image: "/images/covers/research.svg"
+  alt: "LaTeX入門: 美しい論文を書くための基礎知識"
+  relative: false
 ShowToc: true
 TocOpen: false
 draft: false

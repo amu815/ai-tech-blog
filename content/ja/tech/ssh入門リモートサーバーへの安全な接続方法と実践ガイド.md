@@ -5,6 +5,10 @@ description: "SSHの基本と安全なリモートサーバー接続方法を解
 tags: ["SSH", "Linux", "セキュリティ", "リモート接続", "サーバー管理"]
 categories: ["テクノロジー"]
 slug: "ssh入門リモートサーバーへの安全な接続方法と実践ガイド"
+cover:
+  image: "/images/covers/tech.svg"
+  alt: "SSH入門：リモートサーバーへの安全な接続方法と実践ガイド"
+  relative: false
 ShowToc: true
 TocOpen: false
 draft: false

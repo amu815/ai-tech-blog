@@ -5,6 +5,10 @@ description: "A beginner's guide to understanding Transformer architecture, incl
 tags: ["Transformer Architecture", "Natural Language Processing", "Deep Learning", "AI Models", "Machine Learning"]
 categories: ["Research"]
 slug: "demystifying-transformer-architecture-for-beginners"
+cover:
+  image: "/images/covers/research.svg"
+  alt: "Demystifying Transformer Architecture for Beginners"
+  relative: false
 ShowToc: true
 TocOpen: false
 draft: false

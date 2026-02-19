@@ -5,6 +5,10 @@ description: "Ollamaを使ってローカルでLLMを動かす手順を解説。
 tags: ["Ollama", "LLM", "ローカル実行", "AIチュートリアル", "マシンラーニング"]
 categories: ["AI / Machine Learning"]
 slug: "ollamaの使い方ローカルでllmを動かす最速ガイド"
+cover:
+  image: "/images/covers/ai.svg"
+  alt: "Ollamaの使い方：ローカルでLLMを動かす最速ガイド"
+  relative: false
 ShowToc: true
 TocOpen: false
 draft: false

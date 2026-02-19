@@ -5,6 +5,10 @@ description: "自分のデータでLLMをカスタマイズするファインチ
 tags: ["ファインチューニング", "LLM", "カスタマイズ", "AI", "機械学習"]
 categories: ["AI / Machine Learning"]
 slug: "llmをカスタマイズするファインチューニング入門"
+cover:
+  image: "/images/covers/ai.svg"
+  alt: "LLMをカスタマイズするファインチューニング入門"
+  relative: false
 ShowToc: true
 TocOpen: false
 draft: false

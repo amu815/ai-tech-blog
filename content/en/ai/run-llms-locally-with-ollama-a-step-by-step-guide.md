@@ -5,6 +5,10 @@ description: "Learn how to run large language models locally using Ollama. A pra
 tags: ["Ollama", "LLMs", "Local AI", "Machine Learning", "AI Development"]
 categories: ["AI / Machine Learning"]
 slug: "run-llms-locally-with-ollama-a-step-by-step-guide"
+cover:
+  image: "/images/covers/ai.svg"
+  alt: "Run LLMs Locally with Ollama: A Step-by-Step Guide"
+  relative: false
 ShowToc: true
 TocOpen: false
 draft: false

@@ -5,6 +5,10 @@ description: "Learn to generate AI art locally with Stable Diffusion. Master set
 tags: ["Stable Diffusion", "AI Image Generation", "Local AI", "Machine Learning", "Python"]
 categories: ["AI / Machine Learning"]
 slug: "local-ai-image-generation-with-stable-diffusion-a-step-by-step-guide"
+cover:
+  image: "/images/covers/ai.svg"
+  alt: "Local AI Image Generation with Stable Diffusion: A Step-by-Step Guide"
+  relative: false
 ShowToc: true
 TocOpen: false
 draft: false

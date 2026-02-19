@@ -5,6 +5,10 @@ description: "Pythonを活用したWebスクレイピングの基礎を学ぶ。
 tags: ["Python", "Webスクレイピング", "BeautifulSoup", "requests", "ゼロから始める"]
 categories: ["テクノロジー"]
 slug: "pythonでwebスクレイピング入門初心者向け実践ガイド"
+cover:
+  image: "/images/covers/tech.svg"
+  alt: "PythonでWebスクレイピング入門:初心者向け実践ガイド"
+  relative: false
 ShowToc: true
 TocOpen: false
 draft: false

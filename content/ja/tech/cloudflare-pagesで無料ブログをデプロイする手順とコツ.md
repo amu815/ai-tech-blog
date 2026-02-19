@@ -5,6 +5,10 @@ description: "Cloudflare Pagesで無料ブログをデプロイする方法を�
 tags: ["Cloudflare Pages", "無料ブログ", "デプロイ方法", "GitHub", "SEO対策"]
 categories: ["テクノロジー"]
 slug: "cloudflare-pagesで無料ブログをデプロイする手順とコツ"
+cover:
+  image: "/images/covers/tech.svg"
+  alt: "Cloudflare Pagesで無料ブログをデプロイする手順とコツ"
+  relative: false
 ShowToc: true
 TocOpen: false
 draft: false

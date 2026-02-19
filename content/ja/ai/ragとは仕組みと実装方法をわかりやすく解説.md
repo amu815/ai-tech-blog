@@ -5,6 +5,10 @@ description: "RAG（Retrieval-Augmented Generation）の仕組みや実装方法
 tags: ["RAG", "AI", "Machine Learning", "NLP", "Python"]
 categories: ["AI / Machine Learning"]
 slug: "ragとは仕組みと実装方法をわかりやすく解説"
+cover:
+  image: "/images/covers/ai.svg"
+  alt: "RAGとは？仕組みと実装方法をわかりやすく解説"
+  relative: false
 ShowToc: true
 TocOpen: false
 draft: false

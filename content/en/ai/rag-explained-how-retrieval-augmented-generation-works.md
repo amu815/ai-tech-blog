@@ -5,6 +5,10 @@ description: "Learn how Retrieval Augmented Generation (RAG) combines retrieval 
 tags: ["RAG", "Retrieval Augmented Generation", "AI", "Machine Learning", "NLP"]
 categories: ["AI / Machine Learning"]
 slug: "rag-explained-how-retrieval-augmented-generation-works"
+cover:
+  image: "/images/covers/ai.svg"
+  alt: "RAG Explained: How Retrieval Augmented Generation Works"
+  relative: false
 ShowToc: true
 TocOpen: false
 draft: false

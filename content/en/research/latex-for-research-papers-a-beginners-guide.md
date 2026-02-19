@@ -5,6 +5,10 @@ description: "Learn LaTeX for research papers with this beginner-friendly guide.
 tags: ["LaTeX", "research papers", "typesetting", "academic writing", "LaTeX tutorial"]
 categories: ["Research"]
 slug: "latex-for-research-papers-a-beginners-guide"
+cover:
+  image: "/images/covers/research.svg"
+  alt: "LaTeX for Research Papers: A Beginner's Guide"
+  relative: false
 ShowToc: true
 TocOpen: false
 draft: false

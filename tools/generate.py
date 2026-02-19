@@ -10,16 +10,19 @@ Usage:
 """
 
 import argparse
+import html
 import json
 import re
 import subprocess
 import sys
+import urllib.parse
 import urllib.request
 from datetime import datetime
 from pathlib import Path
 
 OLLAMA_URL = "http://127.0.0.1:11434/api/generate"
 MODEL = "qwen3:32b"
+SEARCH_ENABLED = True
 BLOG_ROOT = Path(__file__).resolve().parent.parent
 CONTENT_DIR = BLOG_ROOT / "content"
 
@@ -34,7 +37,7 @@ PROMPT_JA = """/no_think
 
 キーワード: {keyword}
 カテゴリ: {category}
-
+{web_context}
 以下のJSON形式で出力してください。他の文言は一切不要です。JSONのみ返してください。
 {{
   "title": "SEOに最適化されたタイトル（60文字以内）",
@@ -44,6 +47,7 @@ PROMPT_JA = """/no_think
 }}
 
 記事の要件:
+- 上記のWeb検索結果を参考にして、最新かつ正確な情報を記載する
 - 事実に基づいた正確な情報のみ記載する。確信がない情報は書かないこと
 - ツールやライブラリの開発元・所属は正確に記載する（例：OllamaはOllama社のOSS、LlamaはMeta開発）
 - 読者にとって実用的で具体的な内容にする
@@ -59,7 +63,7 @@ You are a technical writer with SEO expertise. Write a high-quality blog article
 
 Keyword: {keyword}
 Category: {category}
-
+{web_context}
 Output ONLY in the following JSON format. No other text.
 {{
   "title": "SEO-optimized title (under 60 characters)",
@@ -69,6 +73,7 @@ Output ONLY in the following JSON format. No other text.
 }}
 
 Article requirements:
+- Use the web search results above as reference for current and accurate information
 - Only include factually accurate information. Do not fabricate details
 - Accurately attribute tools/libraries to their correct creators (e.g., Ollama is by Ollama Inc, Llama by Meta)
 - Practical and specific content for readers
@@ -78,6 +83,43 @@ Article requirements:
 - Include a "Conclusion" section at the end
 - Do not include made-up statistics or unverified claims
 """
+
+
+def web_search(query: str, num_results: int = 5) -> str:
+    """Search DuckDuckGo and return a summary of results."""
+    try:
+        encoded = urllib.parse.quote(query)
+        url = f"https://html.duckduckgo.com/html/?q={encoded}"
+        req = urllib.request.Request(url, headers={
+            "User-Agent": "Mozilla/5.0 (compatible; BlogBot/1.0)"
+        })
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            raw = resp.read().decode("utf-8", errors="ignore")
+
+        # Extract result snippets from DDG HTML
+        results = []
+        # Find result blocks
+        snippets = re.findall(
+            r'class="result__snippet"[^>]*>(.*?)</[^>]+>',
+            raw, re.DOTALL
+        )
+        titles = re.findall(
+            r'class="result__a"[^>]*>(.*?)</a>',
+            raw, re.DOTALL
+        )
+
+        for i in range(min(num_results, len(snippets))):
+            title = re.sub(r'<[^>]+>', '', titles[i]) if i < len(titles) else ""
+            snippet = re.sub(r'<[^>]+>', '', snippets[i])
+            title = html.unescape(title).strip()
+            snippet = html.unescape(snippet).strip()
+            if title or snippet:
+                results.append(f"- {title}: {snippet}")
+
+        return "\n".join(results) if results else "No search results found."
+    except Exception as e:
+        print(f"  Web search failed: {e}", file=sys.stderr)
+        return "Web search unavailable."
 
 
 def call_ollama(prompt: str) -> str:
@@ -172,9 +214,19 @@ def generate_article(keyword: str, lang: str, category: str) -> Path:
 
     cat_name = CATEGORIES[category][lang]
     prompt_template = PROMPT_JA if lang == "ja" else PROMPT_EN
-    prompt = prompt_template.format(keyword=keyword, category=cat_name)
 
-    print(f"Generating: [{lang}] [{category}] {keyword} ...")
+    # Web search for real-time context
+    web_context = ""
+    if SEARCH_ENABLED:
+        print(f"  Searching web: {keyword} ...")
+        search_results = web_search(keyword)
+        if search_results and "unavailable" not in search_results.lower():
+            web_context = f"\n最新のWeb検索結果（参考情報）:\n{search_results}\n" if lang == "ja" \
+                else f"\nRecent web search results (reference):\n{search_results}\n"
+
+    prompt = prompt_template.format(keyword=keyword, category=cat_name, web_context=web_context)
+
+    print(f"  Generating: [{lang}] [{category}] {keyword} ...")
     response = call_ollama(prompt)
 
     try:
@@ -193,6 +245,9 @@ def generate_article(keyword: str, lang: str, category: str) -> Path:
     date = datetime.now().strftime("%Y-%m-%dT%H:%M:%S+09:00")
     slug = slugify(title)
 
+    # Map category to cover image
+    cover_image = f"/images/covers/{category}.svg"
+
     front_matter = f"""---
 title: "{title}"
 date: {date}
@@ -200,6 +255,10 @@ description: "{description}"
 tags: {json.dumps(tags, ensure_ascii=False)}
 categories: ["{cat_name}"]
 slug: "{slug}"
+cover:
+  image: "{cover_image}"
+  alt: "{title}"
+  relative: false
 ShowToc: true
 TocOpen: false
 draft: false
@@ -226,7 +285,15 @@ def main():
     parser.add_argument("--lang", "-l", default="ja", choices=["ja", "en"], help="Language (default: ja)")
     parser.add_argument("--category", "-c", default="ai", choices=list(CATEGORIES.keys()), help="Category (default: ai)")
     parser.add_argument("--batch", "-b", help="Path to keywords file (one per line, format: keyword|lang|category)")
+    parser.add_argument("--model", "-m", default=None, help="Ollama model to use (default: qwen3:32b)")
+    parser.add_argument("--no-search", action="store_true", help="Disable web search for context")
     args = parser.parse_args()
+
+    global MODEL, SEARCH_ENABLED
+    if args.model:
+        MODEL = args.model
+    if args.no_search:
+        SEARCH_ENABLED = False
 
     if args.batch:
         batch_file = Path(args.batch)

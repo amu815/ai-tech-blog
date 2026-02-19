@@ -5,6 +5,10 @@ description: "VS Codeおすすめ拡張機能30選を紹介。生産性を爆上
 tags: ["VS Code", "拡張機能", "生産性", "開発効率", "おすすめ"]
 categories: ["テクノロジー"]
 slug: "vs-code拡張機能おすすめ30選生産性爆上げ"
+cover:
+  image: "/images/covers/tech.svg"
+  alt: "VS Code拡張機能おすすめ30選｜生産性爆上げ"
+  relative: false
 ShowToc: true
 TocOpen: false
 draft: false

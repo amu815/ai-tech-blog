@@ -5,6 +5,10 @@ description: "研究発表スライドを効果的に作成するための構成
 tags: ["研究", "プレゼンテーション", "スライド作成", "デザイン", "アカデミック"]
 categories: ["研究"]
 slug: "効果的な研究発表スライドの作り方-明確な構成とtips"
+cover:
+  image: "/images/covers/research.svg"
+  alt: "効果的な研究発表スライドの作り方 | 明確な構成とTips"
+  relative: false
 ShowToc: true
 TocOpen: false
 draft: false

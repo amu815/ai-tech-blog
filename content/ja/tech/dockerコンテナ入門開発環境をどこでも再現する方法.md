@@ -5,6 +5,10 @@ description: "Dockerコンテナで開発環境を再現する方法を解説。
 tags: ["Docker", "開発環境", "コンテナ化", "DevOps", "CI/CD"]
 categories: ["テクノロジー"]
 slug: "dockerコンテナ入門開発環境をどこでも再現する方法"
+cover:
+  image: "/images/covers/tech.svg"
+  alt: "Dockerコンテナ入門：開発環境をどこでも再現する方法"
+  relative: false
 ShowToc: true
 TocOpen: false
 draft: false

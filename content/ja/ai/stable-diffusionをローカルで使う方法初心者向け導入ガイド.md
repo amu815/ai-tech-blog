@@ -5,6 +5,10 @@ description: "画像生成AI Stable Diffusionのローカル環境構築手順�
 tags: ["Stable Diffusion", "画像生成AI", "ローカル導入", "Python", "GPU利用"]
 categories: ["AI / Machine Learning"]
 slug: "stable-diffusionをローカルで使う方法初心者向け導入ガイド"
+cover:
+  image: "/images/covers/ai.svg"
+  alt: "Stable Diffusionをローカルで使う方法｜初心者向け導入ガイド"
+  relative: false
 ShowToc: true
 TocOpen: false
 draft: false

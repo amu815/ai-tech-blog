@@ -5,6 +5,10 @@ description: "Learn how Python simplifies data analysis and visualization for re
 tags: ["Python", "Data Analysis", "Data Visualization", "Research Tools", "Scientific Computing"]
 categories: ["Research"]
 slug: "python-for-researchers-data-analysis-visualization-guide"
+cover:
+  image: "/images/covers/research.svg"
+  alt: "Python for Researchers: Data Analysis & Visualization Guide"
+  relative: false
 ShowToc: true
 TocOpen: false
 draft: false

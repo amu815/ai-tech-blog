@@ -5,6 +5,10 @@ description: "ChatGPTとローカルLLMの違いを解説。用途別の使い�
 tags: ["AI", "Machine Learning", "ChatGPT", "ローカルLLM", "自然言語処理"]
 categories: ["AI / Machine Learning"]
 slug: "chatgptとローカルllmの違いと使い分けガイド"
+cover:
+  image: "/images/covers/ai.svg"
+  alt: "ChatGPTとローカルLLMの違いと使い分けガイド"
+  relative: false
 ShowToc: true
 TocOpen: false
 draft: false

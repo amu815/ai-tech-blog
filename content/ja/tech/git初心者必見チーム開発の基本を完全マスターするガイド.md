@@ -5,6 +5,10 @@ description: "Gitの基本コマンドからチーム開発の流れまでを解
 tags: ["Git", "チーム開発", "版本管理", "ブランチ管理", "作業フロー"]
 categories: ["テクノロジー"]
 slug: "git初心者必見チーム開発の基本を完全マスターするガイド"
+cover:
+  image: "/images/covers/tech.svg"
+  alt: "Git初心者必見！チーム開発の基本を完全マスターするガイド"
+  relative: false
 ShowToc: true
 TocOpen: false
 draft: false

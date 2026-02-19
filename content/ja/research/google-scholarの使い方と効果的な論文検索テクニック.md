@@ -5,6 +5,10 @@ description: "Google Scholarの基本操作から高度な検索テクニック�
 tags: ["Google Scholar", "論文検索", "研究ツール", "検索テクニック", "アカデミックリサーチ"]
 categories: ["研究"]
 slug: "google-scholarの使い方と効果的な論文検索テクニック"
+cover:
+  image: "/images/covers/research.svg"
+  alt: "Google Scholarの使い方と効果的な論文検索テクニック"
+  relative: false
 ShowToc: true
 TocOpen: false
 draft: false

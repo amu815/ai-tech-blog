@@ -5,6 +5,10 @@ description: "Linux初心者向けに必須コマンド20個を解説。ファ�
 tags: ["Linux", "コマンド", "初心者", "テクノロジー", "システム管理"]
 categories: ["テクノロジー"]
 slug: "linux初心者必見超基礎コマンド20選と使い方"
+cover:
+  image: "/images/covers/tech.svg"
+  alt: "Linux初心者必見！超基礎コマンド20選と使い方"
+  relative: false
 ShowToc: true
 TocOpen: false
 draft: false

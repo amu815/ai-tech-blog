@@ -5,6 +5,10 @@ description: "Learn web scraping with Python and BeautifulSoup. A step-by-step g
 tags: ["Python", "BeautifulSoup", "Web Scraping", "Data Extraction", "HTML Parsing"]
 categories: ["Technology"]
 slug: "python-web-scraping-with-beautifulsoup-tutorial-for-beginners"
+cover:
+  image: "/images/covers/tech.svg"
+  alt: "Python Web Scraping with BeautifulSoup Tutorial for Beginners"
+  relative: false
 ShowToc: true
 TocOpen: false
 draft: false

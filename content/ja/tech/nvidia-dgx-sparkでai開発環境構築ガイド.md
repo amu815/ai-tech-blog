@@ -5,6 +5,10 @@ description: "NVIDIA DGX Sparkで効率的なAI開発環境を構築する手順
 tags: ["NVIDIA DGX Spark", "AI開発", "GPUクラスタ", "環境構築", "Deep Learning"]
 categories: ["テクノロジー"]
 slug: "nvidia-dgx-sparkでai開発環境構築ガイド"
+cover:
+  image: "/images/covers/tech.svg"
+  alt: "NVIDIA DGX SparkでAI開発環境構築ガイド"
+  relative: false
 ShowToc: true
 TocOpen: false
 draft: false

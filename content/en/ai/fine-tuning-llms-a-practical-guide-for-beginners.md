@@ -5,6 +5,10 @@ description: "Learn how to fine-tune large language models (LLMs) with practical
 tags: ["LLM fine-tuning", "AI model training", "Machine Learning", "Beginner's Guide", "Natural Language Processing"]
 categories: ["AI / Machine Learning"]
 slug: "fine-tuning-llms-a-practical-guide-for-beginners"
+cover:
+  image: "/images/covers/ai.svg"
+  alt: "Fine-Tuning LLMs: A Practical Guide for Beginners"
+  relative: false
 ShowToc: true
 TocOpen: false
 draft: false

@@ -5,6 +5,10 @@ description: "Explore 2025's best open-source LLMs for AI development. Compare f
 tags: ["AI", "Machine Learning", "Open Source", "LLMs", "NLP"]
 categories: ["AI / Machine Learning"]
 slug: "top-10-open-source-llms-in-2025-free-ai-models-for-developers"
+cover:
+  image: "/images/covers/ai.svg"
+  alt: "Top 10 Open Source LLMs in 2025: Free AI Models for Developers"
+  relative: false
 ShowToc: true
 TocOpen: false
 draft: false

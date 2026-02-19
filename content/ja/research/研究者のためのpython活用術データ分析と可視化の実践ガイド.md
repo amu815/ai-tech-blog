@@ -5,6 +5,10 @@ description: "Pythonで効率的なデータ分析と可視化を学ぶ実践ガ
 tags: ["Python データ分析", "研究 Python", "データ可視化", "Pandas", "Matplotlib"]
 categories: ["研究"]
 slug: "研究者のためのpython活用術データ分析と可視化の実践ガイド"
+cover:
+  image: "/images/covers/research.svg"
+  alt: "研究者のためのPython活用術：データ分析と可視化の実践ガイド"
+  relative: false
 ShowToc: true
 TocOpen: false
 draft: false

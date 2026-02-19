@@ -5,6 +5,10 @@ description: "Learn to streamline your ML workflow with Docker. This guide cover
 tags: ["Docker", "Machine Learning", "ML Setup", "Containerization", "DevOps for ML"]
 categories: ["Technology"]
 slug: "docker-for-machine-learning-setup-guide-2024"
+cover:
+  image: "/images/covers/tech.svg"
+  alt: "Docker for Machine Learning Setup Guide 2024"
+  relative: false
 ShowToc: true
 TocOpen: false
 draft: false

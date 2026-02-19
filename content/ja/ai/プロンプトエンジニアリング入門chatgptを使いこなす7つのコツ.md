@@ -5,6 +5,10 @@ description: "プロンプトエンジニアリングの基本とChatGPTを最�
 tags: ["AI", "Machine Learning", "ChatGPT", "プロンプトエンジニアリング", "実践テクニック"]
 categories: ["AI / Machine Learning"]
 slug: "プロンプトエンジニアリング入門chatgptを使いこなす7つのコツ"
+cover:
+  image: "/images/covers/ai.svg"
+  alt: "プロンプトエンジニアリング入門：ChatGPTを使いこなす7つのコツ"
+  relative: false
 ShowToc: true
 TocOpen: false
 draft: false

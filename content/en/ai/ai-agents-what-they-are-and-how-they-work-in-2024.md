@@ -5,6 +5,10 @@ description: "Discover AI agents, their core components, and how they learn and 
 tags: ["AI Agents", "Machine Learning", "AI Technology", "Intelligent Systems", "Autonomous AI"]
 categories: ["AI / Machine Learning"]
 slug: "ai-agents-what-they-are-and-how-they-work-in-2024"
+cover:
+  image: "/images/covers/ai.svg"
+  alt: "AI Agents: What They Are and How They Work in 2024"
+  relative: false
 ShowToc: true
 TocOpen: false
 draft: false

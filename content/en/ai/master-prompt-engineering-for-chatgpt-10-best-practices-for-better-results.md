@@ -5,6 +5,10 @@ description: "Discover essential prompt engineering best practices for ChatGPT. 
 tags: ["Prompt Engineering", "ChatGPT", "AI Best Practices", "Machine Learning", "Natural Language Processing"]
 categories: ["AI / Machine Learning"]
 slug: "master-prompt-engineering-for-chatgpt-10-best-practices-for-better-results"
+cover:
+  image: "/images/covers/ai.svg"
+  alt: "Master Prompt Engineering for ChatGPT: 10 Best Practices for Better Results"
+  relative: false
 ShowToc: true
 TocOpen: false
 draft: false

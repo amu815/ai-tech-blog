@@ -5,6 +5,10 @@ description: "Learn efficient strategies to read academic papers quickly. Save t
 tags: ["research methods", "academic reading", "study skills", "paper analysis", "time management"]
 categories: ["Research"]
 slug: "how-to-read-academic-papers-efficiently-a-practical-guide"
+cover:
+  image: "/images/covers/research.svg"
+  alt: "How to Read Academic Papers Efficiently: A Practical Guide"
+  relative: false
 ShowToc: true
 TocOpen: false
 draft: false

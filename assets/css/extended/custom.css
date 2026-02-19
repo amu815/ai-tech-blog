@@ -1,0 +1,101 @@
+/* AI Tech Lab - Custom Styles */
+
+/* Hero gradient for home info */
+.first-entry {
+  position: relative;
+  overflow: hidden;
+}
+
+.first-entry::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  opacity: 0.08;
+  z-index: 0;
+  border-radius: var(--radius);
+}
+
+/* Card-style article entries */
+.post-entry {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+}
+
+.post-entry:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Cover image styling */
+.entry-cover {
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+}
+
+.entry-cover img {
+  transition: transform 0.3s ease;
+}
+
+.post-entry:hover .entry-cover img {
+  transform: scale(1.03);
+}
+
+/* Category badges */
+.post-meta .post-categories a {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 0.75em;
+  text-decoration: none;
+}
+
+/* Tag pills styling */
+.post-tags a {
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-size: 0.85em;
+  transition: all 0.2s ease;
+}
+
+.post-tags a:hover {
+  background: var(--primary);
+  color: var(--theme);
+}
+
+/* TOC improvements */
+.toc {
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  padding: 1rem;
+}
+
+/* Code blocks */
+.highlight {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Reading time and meta info */
+.post-meta {
+  font-size: 0.9em;
+  opacity: 0.8;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Better heading anchors */
+.post-content h2 {
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 0.3em;
+  margin-top: 2em;
+}
