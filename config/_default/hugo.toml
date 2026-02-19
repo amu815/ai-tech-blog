@@ -1,0 +1,41 @@
+baseURL = "https://ai-tech-blog.pages.dev"
+title = "AI Tech Lab"
+theme = "PaperMod"
+defaultContentLanguage = "ja"
+defaultContentLanguageInSubdir = true
+enableRobotsTXT = true
+buildDrafts = false
+buildFuture = false
+
+[params]
+  env = "production"
+  description = "AI・テクノロジー・研究の最新情報を日英バイリンガルで発信"
+  author = "AI Tech Lab"
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowToc = true
+  TocOpen = false
+  comments = false
+
+  [params.homeInfoParams]
+    Title = "AI Tech Lab"
+    Content = "AI・テクノロジー・研究の最新トレンドを発信するテックブログ"
+
+  [params.profileMode]
+    enabled = false
+
+  [params.assets]
+    disableHLJS = false
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[minify]
+  disableXML = true
+
+[markup]
+  [markup.highlight]
+    noClasses = false

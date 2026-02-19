@@ -1,0 +1,8 @@
+# format: keyword | lang | category
+# Categories: ai, tech, research
+
+ローカルLLMの始め方 2025年完全ガイド|ja|ai
+NVIDIA DGX Sparkで始めるAI開発環境構築|ja|tech
+大規模言語モデルの最新研究動向|ja|research
+How to Run LLMs Locally with Ollama|en|ai
+Understanding Transformer Architecture for Beginners|en|research

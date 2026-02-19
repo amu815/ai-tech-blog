@@ -1,0 +1,15 @@
+[ja]
+  languageName = "日本語"
+  languageCode = "ja"
+  weight = 1
+  title = "AI Tech Lab"
+  [ja.params]
+    description = "AI・テクノロジー・研究の最新情報を発信"
+
+[en]
+  languageName = "English"
+  languageCode = "en"
+  weight = 2
+  title = "AI Tech Lab"
+  [en.params]
+    description = "Latest insights on AI, Technology, and Research"

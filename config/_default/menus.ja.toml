@@ -1,0 +1,29 @@
+[[main]]
+  identifier = "ja-ai"
+  name = "AI"
+  url = "/ja/ai/"
+  weight = 10
+
+[[main]]
+  identifier = "ja-tech"
+  name = "テクノロジー"
+  url = "/ja/tech/"
+  weight = 20
+
+[[main]]
+  identifier = "ja-research"
+  name = "研究"
+  url = "/ja/research/"
+  weight = 30
+
+[[main]]
+  identifier = "ja-tags"
+  name = "タグ"
+  url = "/ja/tags/"
+  weight = 40
+
+[[main]]
+  identifier = "ja-about"
+  name = "About"
+  url = "/ja/about/"
+  weight = 50
