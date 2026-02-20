@@ -216,12 +216,10 @@ def slugify(text: str) -> str:
 def generate_article(keyword: str, lang: str, category: str) -> Path:
     """Generate a single article and save it as a Hugo content file."""
     if category not in CATEGORIES:
-        print(f"Invalid category: {category}. Use: {', '.join(CATEGORIES.keys())}")
-        sys.exit(1)
+        raise ValueError(f"Invalid category: {category}. Use: {', '.join(CATEGORIES.keys())}")
 
     if lang not in ("ja", "en"):
-        print(f"Invalid language: {lang}. Use: ja, en")
-        sys.exit(1)
+        raise ValueError(f"Invalid language: {lang}. Use: ja, en")
 
     cat_name = CATEGORIES[category][lang]
     prompt_template = PROMPT_JA if lang == "ja" else PROMPT_EN

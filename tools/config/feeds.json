@@ -1,0 +1,64 @@
+{
+  "feeds": [
+    {
+      "name": "Hacker News",
+      "url": "https://hnrss.org/newest?points=100",
+      "category": "tech",
+      "language": "en",
+      "weight": 1.5
+    },
+    {
+      "name": "ArXiv cs.AI",
+      "url": "https://rss.arxiv.org/rss/cs.AI",
+      "category": "research",
+      "language": "en",
+      "weight": 1.3
+    },
+    {
+      "name": "TechCrunch",
+      "url": "https://techcrunch.com/feed/",
+      "category": "tech",
+      "language": "en",
+      "weight": 1.2
+    },
+    {
+      "name": "HuggingFace Blog",
+      "url": "https://huggingface.co/blog/feed.xml",
+      "category": "ai",
+      "language": "en",
+      "weight": 1.4
+    },
+    {
+      "name": "GitHub Blog",
+      "url": "https://github.blog/feed/",
+      "category": "tech",
+      "language": "en",
+      "weight": 1.1
+    },
+    {
+      "name": "Publickey",
+      "url": "https://www.publickey1.jp/atom.xml",
+      "category": "tech",
+      "language": "ja",
+      "weight": 1.3
+    },
+    {
+      "name": "Qiita Trending",
+      "url": "https://qiita.com/popular-items/feed",
+      "category": "tech",
+      "language": "ja",
+      "weight": 1.1
+    }
+  ],
+  "keywords": {
+    "ai": ["llm", "gpt", "transformer", "machine learning", "deep learning", "neural", "ai", "fine-tuning", "rag", "embedding", "prompt", "diffusion", "generative"],
+    "tech": ["docker", "kubernetes", "python", "rust", "typescript", "devops", "cloud", "api", "database", "microservices", "cicd", "linux", "security"],
+    "research": ["arxiv", "paper", "benchmark", "dataset", "model", "training", "inference", "scaling", "alignment", "evaluation"]
+  },
+  "settings": {
+    "max_topics_per_run": 3,
+    "dedup_window_days": 7,
+    "ja_en_ratio": [60, 40],
+    "min_score": 0.3
+  }
+}
